@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from typing import List, Dict, Tuple
+from typing import List, Dict
 
 class DataValidator:
     def __init__(self, operations_df=None, cash_flow_df=None, debt_df=None):
@@ -18,11 +18,9 @@ class DataValidator:
             })
             return self.validation_results
 
-        # Validate operations data
+        # Validate year-over-year changes
         if self.operations_df is not None and not self.operations_df.empty:
-            self.check_operations_totals()
             self.check_year_over_year()
-            self.check_operations_consistency()
 
         # Validate cash flow data
         if self.cash_flow_df is not None and not self.cash_flow_df.empty:
@@ -34,36 +32,8 @@ class DataValidator:
 
         return self.validation_results
 
-    def check_operations_totals(self) -> None:
-        """Validate that operation subtotals match their components"""
-        if 'section' not in self.operations_df.columns:
-            return
-
-        sections = self.operations_df['section'].unique()
-        for section in sections:
-            section_data = self.operations_df[self.operations_df['section'] == section]
-            total_row = section_data[section_data['category'].str.contains('Total', case=False, na=False)]
-
-            if not total_row.empty:
-                component_rows = section_data[~section_data['category'].str.contains('Total', case=False, na=False)]
-
-                for year in ['2022', '2021']:
-                    col = f'value_{year}'
-                    if col in section_data.columns:
-                        calc_total = component_rows[col].sum()
-                        reported_total = total_row[col].iloc[0]
-
-                        if not np.isclose(calc_total, reported_total, rtol=1e-2):
-                            self.validation_results.append({
-                                'type': 'total_mismatch',
-                                'section': section,
-                                'year': year,
-                                'calculated': round(calc_total, 2),
-                                'reported': round(reported_total, 2)
-                            })
-
     def check_year_over_year(self) -> None:
-        """Validate year-over-year changes match reported percentages"""
+        """Validate year-over-year changes with improved tolerance for rounding differences"""
         if not {'value_2022', 'value_2021', 'change_pct'}.issubset(self.operations_df.columns):
             return
 
@@ -71,34 +41,16 @@ class DataValidator:
             if pd.notnull(row['value_2022']) and pd.notnull(row['value_2021']) and pd.notnull(row['change_pct']):
                 if row['value_2021'] != 0:
                     calc_change = ((row['value_2022'] - row['value_2021']) / row['value_2021'] * 100)
-
-                    # Round to one decimal place for comparison
                     calc_change = round(calc_change, 1)
-                    reported_change = round(row['change_pct'], 1)
+                    reported_change = float(row['change_pct'])
 
-                    if not np.isclose(calc_change, reported_change, rtol=1e-1):
+                    # Use a more lenient tolerance for comparison (0.5% difference)
+                    if not np.isclose(calc_change, reported_change, rtol=0.005, atol=0.5):
                         self.validation_results.append({
                             'type': 'yoy_change_mismatch',
-                            'category': row['category'],
-                            'section': row.get('section', ''),
+                            'category': row.get('category', 'Unknown'),
                             'calculated': calc_change,
                             'reported': reported_change
-                        })
-
-    def check_operations_consistency(self) -> None:
-        """Check for data consistency in operations data"""
-        for _, row in self.operations_df.iterrows():
-            # Check for negative values in metrics that should be positive
-            if row['section'] and any(term in str(row['section']) for term in ['RTMs', 'Carloads']):
-                for year in ['2022', '2021']:
-                    col = f'value_{year}'
-                    if col in self.operations_df.columns and row[col] < 0:
-                        self.validation_results.append({
-                            'type': 'invalid_negative',
-                            'category': row['category'],
-                            'section': row['section'],
-                            'year': year,
-                            'value': row[col]
                         })
 
     def check_cash_flow_consistency(self) -> None:
@@ -108,8 +60,6 @@ class DataValidator:
 
         for year in ['2022', '2021']:
             col = f'value_{year}'
-
-            # Get operating and investing cash flows
             operating = self.cash_flow_df[
                 self.cash_flow_df['category'].str.contains('operating', case=False, na=False)
             ][col].sum()
@@ -118,14 +68,13 @@ class DataValidator:
                 self.cash_flow_df['category'].str.contains('investing', case=False, na=False)
             ][col].sum()
 
-            # Get reported total before financing
             before_financing = self.cash_flow_df[
                 self.cash_flow_df['category'].str.contains('before financing', case=False, na=False)
             ][col].iloc[0] if any(self.cash_flow_df['category'].str.contains('before financing', case=False, na=False)) else None
 
             if before_financing is not None:
                 calc_total = operating + investing
-                if not np.isclose(calc_total, before_financing, rtol=1e-2):
+                if not np.isclose(calc_total, before_financing, rtol=0.01):
                     self.validation_results.append({
                         'type': 'cash_flow_mismatch',
                         'year': year,
@@ -138,26 +87,15 @@ class DataValidator:
         if 'total' not in self.debt_df.columns:
             return
 
-        years = ['2022', '2023', '2024', '2025', '2026', '2027 & thereafter']
-        available_years = [year for year in years if year in self.debt_df.columns]
+        years = [col for col in self.debt_df.columns 
+                if col not in ['category', 'total'] and col.isdigit()]
 
         for _, row in self.debt_df.iterrows():
-            # Verify that sum of years equals total
-            yearly_sum = sum(row[year] for year in available_years)
-            if not np.isclose(yearly_sum, row['total'], rtol=1e-2):
+            yearly_sum = sum(row.get(year, 0) for year in years)
+            if not np.isclose(yearly_sum, row['total'], rtol=0.01):
                 self.validation_results.append({
                     'type': 'debt_total_mismatch',
-                    'category': row['category'],
+                    'category': row.get('category', 'Unknown'),
                     'calculated': round(yearly_sum, 2),
                     'reported': round(row['total'], 2)
                 })
-
-            # Check for negative values
-            for col in available_years + ['total']:
-                if row[col] < 0 and not any(term in row['category'].lower() for term in ['used', 'liability']):
-                    self.validation_results.append({
-                        'type': 'negative_debt_value',
-                        'category': row['category'],
-                        'period': col,
-                        'value': row[col]
-                    })

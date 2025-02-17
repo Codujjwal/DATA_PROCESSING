@@ -1,36 +1,43 @@
-section,category,value_2022,value_2021,change_pct
-Revenues ($ millions) (2),Petroleum and chemicals,756.0,661.0,1414.0
-Revenues ($ millions) (2),Metals and minerals,406.0,368.0,1010.0
-Revenues ($ millions) (2),Forest products,426.0,429.0,-11.0
-Revenues ($ millions) (2),Coal,195.0,126.0,5555.0
-Revenues ($ millions) (2),Grain and fertilizers,604.0,713.0,-1515.0
-Revenues ($ millions) (2),Intermodal,1056.0,968.0,99.0
-Revenues ($ millions) (2),Automotive,165.0,158.0,44.0
-Revenue ton miles (RTMs) (millions) (3),Petroleum and chemicals,11559.0,10732.0,88.0
-Revenue ton miles (RTMs) (millions) (3),Metals and minerals,6263.0,6293.0,0.0
-Revenue ton miles (RTMs) (millions) (3),Forest products,5819.0,6670.0,-1313.0
-Revenue ton miles (RTMs) (millions) (3),Coal,5368.0,4026.0,3333.0
-Revenue ton miles (RTMs) (millions) (3),Grain and fertilizers,13351.0,17841.0,-2525.0
-Revenue ton miles (RTMs) (millions) (3),Intermodal,13556.0,15233.0,-1111.0
-Revenue ton miles (RTMs) (millions) (3),Automotive,638.0,659.0,-33.0
-Freight revenue / RTM (cents) (2) (3),Petroleum and chemicals,6.54,6.16,66.0
-Freight revenue / RTM (cents) (2) (3),Metals and minerals,6.48,5.85,1111.0
-Freight revenue / RTM (cents) (2) (3),Forest products,7.32,6.43,1414.0
-Freight revenue / RTM (cents) (2) (3),Coal,3.63,3.13,1616.0
-Freight revenue / RTM (cents) (2) (3),Grain and fertilizers,4.52,4.0,1313.0
-Freight revenue / RTM (cents) (2) (3),Intermodal,7.79,6.35,2323.0
-Freight revenue / RTM (cents) (2) (3),Automotive,25.86,23.98,88.0
-Carloads (thousands) (3),Petroleum and chemicals,159.0,150.0,66.0
-Carloads (thousands) (3),Metals and minerals,209.0,223.0,-66.0
-Carloads (thousands) (3),Forest products,78.0,86.0,-99.0
-Carloads (thousands) (3),Coal,118.0,69.0,7171.0
-Carloads (thousands) (3),Grain and fertilizers,145.0,176.0,-1818.0
-Carloads (thousands) (3),Intermodal,589.0,676.0,-1313.0
-Carloads (thousands) (3),Automotive,48.0,51.0,-66.0
-Freight revenue / carload ($) (2) (3),Petroleum and chemicals,4755.0,4407.0,88.0
-Freight revenue / carload ($) (2) (3),Metals and minerals,1943.0,1650.0,1818.0
-Freight revenue / carload ($) (2) (3),Forest products,5462.0,4988.0,1010.0
-Freight revenue / carload ($) (2) (3),Coal,1653.0,1826.0,-99.0
-Freight revenue / carload ($) (2) (3),Grain and fertilizers,4166.0,4051.0,33.0
-Freight revenue / carload ($) (2) (3),Intermodal,1793.0,1432.0,2525.0
-Freight revenue / carload ($) (2) (3),Automotive,3438.0,3098.0,1111.0
+category,value_2022,value_2021,change_pct
+Petroleum and chemicals,756.0,661.0,14.0
+Metals and minerals,406.0,368.0,10.0
+Forest products,426.0,429.0,0.0
+Coal,195.0,126.0,55.0
+Grain and fertilizers,604.0,713.0,0.0
+Intermodal,1056.0,968.0,9.0
+Automotive,165.0,158.0,4.0
+Total freight revenues,3608.0,3423.0,5.0
+Other revenues,100.0,112.0,0.0
+Total revenues,3708.0,3535.0,5.0
+Petroleum and chemicals,11559.0,10732.0,8.0
+Metals and minerals,6263.0,6293.0,0.0
+Forest products,5819.0,6670.0,0.0
+Coal,5368.0,4026.0,33.0
+Grain and fertilizers,13351.0,17841.0,0.0
+Intermodal,13556.0,15233.0,0.0
+Automotive,638.0,659.0,0.0
+Total RTMs,56554.0,61454.0,0.0
+Petroleum and chemicals,6.54,6.16,6.0
+Metals and minerals,6.48,5.85,11.0
+Forest products,7.32,6.43,14.0
+Coal,3.63,3.13,16.0
+Grain and fertilizers,4.52,4.0,13.0
+Intermodal,7.79,6.35,23.0
+Automotive,25.86,23.98,8.0
+Total freight revenue / RTM,6.38,5.57,15.0
+Petroleum and chemicals,159.0,150.0,6.0
+Metals and minerals,209.0,223.0,0.0
+Forest products,78.0,86.0,0.0
+Coal,118.0,69.0,71.0
+Grain and fertilizers,145.0,176.0,0.0
+Intermodal,589.0,676.0,0.0
+Automotive,48.0,51.0,0.0
+Total carloads,1346.0,1431.0,0.0
+Petroleum and chemicals,4755.0,4407.0,8.0
+Metals and minerals,1943.0,1650.0,18.0
+Forest products,5462.0,4988.0,10.0
+Coal,1653.0,1826.0,0.0
+Grain and fertilizers,4166.0,4051.0,3.0
+Intermodal,1793.0,1432.0,25.0
+Automotive,3438.0,3098.0,11.0
+Total freight revenue / carload,2681.0,2392.0,12.0
