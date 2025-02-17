@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 pip install pandas numpy
 ```
 
@@ -53,3 +54,6 @@ The parser provides detailed validation results including:
 Run tests using:
 ```bash
 python -m unittest tests/test_parser.py -v
+=======
+# DATA_PROCESSING
+>>>>>>> 27c523a965ccb31c0bd4c0c40577cb36c443ec2f
