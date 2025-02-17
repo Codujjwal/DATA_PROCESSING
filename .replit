@@ -1,0 +1,33 @@
+modules = ["python-3.11"]
+
+[nix]
+channel = "stable-24_05"
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Financial Parser"
+
+[[workflows.workflow]]
+name = "Financial Parser"
+author = "agent"
+
+[workflows.workflow.metadata]
+agentRequireRestartOnSave = false
+
+[[workflows.workflow.tasks]]
+task = "packager.installForAll"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cp attached_assets/Pasted--Three-months-ended-March-31-2022-2021-Change-Fav-Unfav-Change-at-constant--1739813496644.txt financial_data.txt && python main.py"
+
+[deployment]
+run = ["sh", "-c", "cp attached_assets/Pasted--Three-months-ended-March-31-2022-2021-Change-Fav-Unfav-Change-at-constant--1739813496644.txt financial_data.txt && python main.py"]

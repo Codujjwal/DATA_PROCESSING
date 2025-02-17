@@ -1,0 +1,60 @@
+														
+ 	Three months ended March 31
+ 	2022	2021	% Change
+Fav (Unfav)	
+% Change at
+constant
+currency
+Fav (Unfav) (1)
+Revenues ($ millions) (2)
+				
+Petroleum and chemicals	756 		661 		14 	%	14 	%
+Metals and minerals	406 		368 		10 	%	10 	%
+Forest products	426 		429 		(1 	%)	(1 	%)
+Coal	195 		126 		55 	%	55 	%
+Grain and fertilizers	604 		713 		(15 	%)	(15 	%)
+Intermodal	1,056 		968 		9 	%	9 	%
+Automotive	165 		158 		4 	%	4 	%
+Total freight revenues	3,608 		3,423 		5 	%	5 	%
+Other revenues	100 		112 		(11 	%)	(11 	%)
+Total revenues	3,708 		3,535 		5 	%	5 	%
+Revenue ton miles (RTMs) (millions) (3)
+				
+Petroleum and chemicals	11,559 		10,732 		8 	%	8 	%
+Metals and minerals	6,263 		6,293 		— 	%	— 	%
+Forest products	5,819 		6,670 		(13 	%)	(13 	%)
+Coal	5,368 		4,026 		33 	%	33 	%
+Grain and fertilizers	13,351 		17,841 		(25 	%)	(25 	%)
+Intermodal	13,556 		15,233 		(11 	%)	(11 	%)
+Automotive	638 		659 		(3 	%)	(3 	%)
+Total RTMs	56,554 		61,454 		(8 	%)	(8 	%)
+Freight revenue / RTM (cents) (2) (3)
+				
+Petroleum and chemicals	6.54 		6.16 		6 	%	6 	%
+Metals and minerals	6.48 		5.85 		11 	%	11 	%
+Forest products	7.32 		6.43 		14 	%	14 	%
+Coal	3.63 		3.13 		16 	%	16 	%
+Grain and fertilizers	4.52 		4.00 		13 	%	13 	%
+Intermodal	7.79 		6.35 		23 	%	23 	%
+Automotive	25.86 		23.98 		8 	%	8 	%
+Total freight revenue / RTM	6.38 		5.57 		15 	%	15 	%
+Carloads (thousands) (3)
+				
+Petroleum and chemicals	159 		150 		6 	%	6 	%
+Metals and minerals	209 		223 		(6 	%)	(6 	%)
+Forest products	78 		86 		(9 	%)	(9 	%)
+Coal	118 		69 		71 	%	71 	%
+Grain and fertilizers	145 		176 		(18 	%)	(18 	%)
+Intermodal	589 		676 		(13 	%)	(13 	%)
+Automotive	48 		51 		(6 	%)	(6 	%)
+Total carloads	1,346 		1,431 		(6 	%)	(6 	%)
+Freight revenue / carload ($) (2) (3)
+				
+Petroleum and chemicals	4,755 		4,407 		8 	%	8 	%
+Metals and minerals	1,943 		1,650 		18 	%	18 	%
+Forest products	5,462 		4,988 		10 	%	10 	%
+Coal	1,653 		1,826 		(9 	%)	(9 	%)
+Grain and fertilizers	4,166 		4,051 		3 	%	3 	%
+Intermodal	1,793 		1,432 		25 	%	25 	%
+Automotive	3,438 		3,098 		11 	%	11 	%
+Total freight revenue / carload	2,681 		2,392 		12 	%	12 	%
